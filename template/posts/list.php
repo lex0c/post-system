@@ -3,8 +3,9 @@
 <div class="container">
     <div class="row">
         <header class="col-md-12">
-            <h1>Listagem de Posts</h1>
-            <a class="btn btn-primary" href="categories/create">Novo post</a>
+            <h1>
+                Listagem de Posts - <a class="btn btn-primary" href="posts/create">Novo Post</a>
+            </h1>
         </header>
         <div class="col-md-12">
             <table class="table table-striped table-hover">
