@@ -7,6 +7,8 @@
                 Listagem de Posts - <a class="btn btn-primary" href="posts/create">Novo Post</a>
             </h1>
         </header>
+    </div>
+    <div class="row">
         <div class="col-md-12">
             <table class="table table-striped table-hover">
                 <thead>
@@ -22,6 +24,7 @@
                         <td><?php echo $post->getId(); ?></td>
                         <td><?php echo $post->getTitle(); ?></td>
                         <td>
+                            <?php echo "<a class='btn btn-warning' href='/posts/{$post->getId()}/categories'>Categoria</a>"; ?> |
                             <?php echo "<a class='btn btn-success' href='/posts/{$post->getId()}/edit'>Editar</a>"; ?> |
                             <?php echo "<a class='btn btn-danger' href='/posts/{$post->getId()}/remove'>Excluir</a>"; ?>
                         </td>

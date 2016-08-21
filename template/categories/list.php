@@ -7,6 +7,8 @@
                 Listagem de Categorias - <a class="btn btn-primary" href="categories/create">Nova Categoria</a>
             </h1>
         </header>
+    </div>
+    <div class="row">
         <div class="col-md-12">
             <table class="table table-striped table-hover">
                 <thead>

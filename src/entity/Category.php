@@ -22,7 +22,7 @@ class Category
     /**
      * @return mixed
      */
-    function getId() 
+    public function getId() 
     {
         return $this->id;
     }
@@ -30,7 +30,7 @@ class Category
     /**
      * @return mixed
      */
-    function getName() 
+    public function getName() 
     {
         return $this->name;
     }
@@ -39,7 +39,7 @@ class Category
      * @param mixed $name
      * @return Category
      */
-    function setName($name) 
+    public function setName($name) 
     {
         $this->name = $name;
         return $this;

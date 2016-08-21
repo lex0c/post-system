@@ -5,6 +5,8 @@
         <header class="col-md-12">
             <h1>Novo Post</h1>
         </header>
+    </div>
+    <div class="row">
         <div class="col-md-12">
             <form name="form" method="post" action="/posts/save">
                 <div class="form-group">

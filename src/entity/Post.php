@@ -2,6 +2,9 @@
 
 namespace App\entity;
 
+use App\entity\Category;
+use \Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity
  * @Table(name="post")
@@ -16,38 +19,62 @@ class Post
     private $id;
     /**
      * @Column(name="title", type="string", length=100, nullable=false)
-     */
+    */
     private $title;
     /**
      * @Column(name="content", type="text", nullable=false)
-     */
+    */
     private $content;
+    /**
+     * @ManyToMany(targetEntity="App\entity\Category")
+    */
+    private $categories;
     
-    function getId() 
+    
+    public function __construct() 
+    {
+        $this->categories = new ArrayCollection();
+    }
+            
+    public function getId() 
     {
         return $this->id;
     }
 
-    function getTitle() 
+    public function getTitle() 
     {
         return $this->title;
     }
     
-    function setTitle($title) 
+    public function setTitle($title) 
     {
         $this->title = $title;
         return $this;
     }
 
-    function getContent() 
+    public function getContent() 
     {
         return $this->content;
     }
 
-    function setContent($content) 
+    public function setContent($content) 
     {
         $this->content = $content;
         return $this;
+    }
+    
+    public function addCategory(Category $category)
+    {
+        $this->categories->add($category);
+        return $this;
+    }
+    
+    /**
+     * @return ArrayCollection
+    */
+    public function getCategories()
+    {
+        return $this->categories;
     }
     
 }

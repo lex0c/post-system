@@ -5,6 +5,8 @@
         <header class="col-md-12">
             <h1>Editar Categoria</h1>
         </header>
+    </div>
+    <div class="row">
         <div class="col-md-12">
             <form name="form" method="post" action="<?php echo "/categories/{$category->getId()}/update"; ?>">
                 <div class="form-group">

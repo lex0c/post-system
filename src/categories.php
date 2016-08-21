@@ -14,8 +14,7 @@ $map->get("categories.list", "/categories",
     ]);
 });
 
-$map->get("categories.create", "/categories/create", 
-        function($request, $response) use ($view) {
+$map->get("categories.create", "/categories/create", function($request, $response) use ($view) {
     return $view->render($response, "categories/create.php");
 });
 
@@ -24,6 +23,7 @@ $map->post("categories.save", "/categories/save",
     $data = $request->getParsedBody();
     $category = new Category();
     $category->setName($data["name"]);
+    
     $entityManager->persist($category);
     $entityManager->flush();
     
@@ -44,9 +44,9 @@ $map->get("categories.edit", "/categories/{id}/edit",
 $map->post("categories.update", "/categories/{id}/update", 
         function(ServerRequestInterface $request, $response) use ($view, $entityManager, $generator) {
     $id = $request->getAttribute("id");
+    $data = $request->getParsedBody();
     $repository = $entityManager->getRepository(Category::class);
     $category = $repository->find($id);
-    $data = $request->getParsedBody();
     $category->setName($data["name"]);
     $entityManager->flush();
     
@@ -59,10 +59,10 @@ $map->get("categories.remove", "/categories/{id}/remove",
     $id = $request->getAttribute("id");
     $repository = $entityManager->getRepository(Category::class);
     $category = $repository->find($id);
+    
     $entityManager->remove($category);
     $entityManager->flush();
     
     $uri = $generator->generate("categories.list");
     return new Response\RedirectResponse($uri);
 });
-
