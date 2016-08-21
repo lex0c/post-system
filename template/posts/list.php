@@ -3,27 +3,26 @@
 <div class="container">
     <div class="row">
         <header class="col-md-12">
-            <h1>
-                Listagem de Categorias - <a class="btn btn-primary" href="categories/create">Nova Categoria</a>
-            </h1>
+            <h1>Listagem de Posts</h1>
+            <a class="btn btn-primary" href="categories/create">Novo post</a>
         </header>
         <div class="col-md-12">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>NOME</th>
+                        <th>TITLE</th>
                         <th>OPÇÕES</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($categories as $category): ?>
+                    <?php foreach($posts as $post): ?>
                     <tr>
-                        <td><?php echo $category->getId(); ?></td>
-                        <td><?php echo $category->getName(); ?></td>
+                        <td><?php echo $post->getId(); ?></td>
+                        <td><?php echo $post->getTitle(); ?></td>
                         <td>
-                            <?php echo "<a class='btn btn-success' href='/categories/{$category->getId()}/edit'>Editar</a>"; ?> |
-                            <?php echo "<a class='btn btn-danger' href='/categories/{$category->getId()}/remove'>Excluir</a>"; ?>
+                            <?php echo "<a class='btn btn-success' href='/posts/{$post->getId()}/edit'>Editar</a>"; ?> |
+                            <?php echo "<a class='btn btn-danger' href='/posts/{$post->getId()}/remove'>Excluir</a>"; ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>
